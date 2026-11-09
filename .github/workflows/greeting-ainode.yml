@@ -1,21 +1,22 @@
 name: AINode Code Style Check
 
-on:
-  push:
-    branches:
-      - master
-      - "rc/*"
-    paths:
-      - 'iotdb-core/ainode/**'
-  pull_request:
-    branches:
-      - master
-      - "rc/*"
-    paths:
-      - 'iotdb-core/ainode/**'
-  # allow manually run the action:
-  workflow_dispatch:
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   push:
+#     branches:
+#       - master
+#       - "rc/*"
+#     paths:
+#       - 'iotdb-core/ainode/**'
+#   pull_request:
+#     branches:
+#       - master
+#       - "rc/*"
+#     paths:
+#       - 'iotdb-core/ainode/**'
+#   # allow manually run the action:
+#   workflow_dispatch:
+# 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true

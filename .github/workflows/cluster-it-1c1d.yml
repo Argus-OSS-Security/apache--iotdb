@@ -1,33 +1,34 @@
 name: Cluster IT - 1C1D
 
-on:
-  push:
-    branches:
-      - master
-      - "rel/*"
-      - "rc/*"
-    paths-ignore:
-      - "docs/**"
-      - "site/**"
-      - "iotdb-client/client-cpp/**"
-      - ".github/workflows/client-cpp-package.yml"
-      - ".github/scripts/package-client-cpp-*.sh"
-      - ".github/workflows/multi-language-client.yml"
-  pull_request:
-    branches:
-      - master
-      - "rel/*"
-      - "rc/*"
-    paths-ignore:
-      - "docs/**"
-      - "site/**"
-      - "iotdb-client/client-cpp/**"
-      - ".github/workflows/client-cpp-package.yml"
-      - ".github/scripts/package-client-cpp-*.sh"
-      - ".github/workflows/multi-language-client.yml"
-  # allow manually run the action:
-  workflow_dispatch:
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   push:
+#     branches:
+#       - master
+#       - "rel/*"
+#       - "rc/*"
+#     paths-ignore:
+#       - "docs/**"
+#       - "site/**"
+#       - "iotdb-client/client-cpp/**"
+#       - ".github/workflows/client-cpp-package.yml"
+#       - ".github/scripts/package-client-cpp-*.sh"
+#       - ".github/workflows/multi-language-client.yml"
+#   pull_request:
+#     branches:
+#       - master
+#       - "rel/*"
+#       - "rc/*"
+#     paths-ignore:
+#       - "docs/**"
+#       - "site/**"
+#       - "iotdb-client/client-cpp/**"
+#       - ".github/workflows/client-cpp-package.yml"
+#       - ".github/scripts/package-client-cpp-*.sh"
+#       - ".github/workflows/multi-language-client.yml"
+#   # allow manually run the action:
+#   workflow_dispatch:
+# 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true

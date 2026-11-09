@@ -1,39 +1,40 @@
 # Shared client CI: run only affected language jobs via changed path detection.
 name: Multi-Language Client
-on:
-  push:
-    branches:
-      - master
-      - "rc/*"
-    paths:
-      - 'pom.xml'
-      - 'iotdb-client/pom.xml'
-      - 'iotdb-client/client-py/**'
-      - 'iotdb-client/client-cpp/**'
-      - 'iotdb-protocol/thrift-datanode/src/main/thrift/client.thrift'
-      - 'iotdb-protocol/thrift-commons/src/main/thrift/common.thrift'
-      - '.github/workflows/multi-language-client.yml'
-      - '.github/workflows/client-cpp-package.yml'
-      - '.github/scripts/package-client-cpp-*.sh'
-  pull_request:
-    branches:
-      - master
-      - "rc/*"
-      - 'force_ci/**'
-    paths:
-      - 'pom.xml'
-      - 'iotdb-client/pom.xml'
-      - 'iotdb-client/client-py/**'
-      - 'iotdb-client/client-cpp/**'
-      - 'iotdb-protocol/thrift-datanode/src/main/thrift/client.thrift'
-      - 'iotdb-protocol/thrift-commons/src/main/thrift/common.thrift'
-      - '.github/workflows/multi-language-client.yml'
-      - '.github/workflows/client-cpp-package.yml'
-      - '.github/scripts/package-client-cpp-*.sh'
-  # allow manually run the action:
-  workflow_dispatch:
-
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   push:
+#     branches:
+#       - master
+#       - "rc/*"
+#     paths:
+#       - 'pom.xml'
+#       - 'iotdb-client/pom.xml'
+#       - 'iotdb-client/client-py/**'
+#       - 'iotdb-client/client-cpp/**'
+#       - 'iotdb-protocol/thrift-datanode/src/main/thrift/client.thrift'
+#       - 'iotdb-protocol/thrift-commons/src/main/thrift/common.thrift'
+#       - '.github/workflows/multi-language-client.yml'
+#       - '.github/workflows/client-cpp-package.yml'
+#       - '.github/scripts/package-client-cpp-*.sh'
+#   pull_request:
+#     branches:
+#       - master
+#       - "rc/*"
+#       - 'force_ci/**'
+#     paths:
+#       - 'pom.xml'
+#       - 'iotdb-client/pom.xml'
+#       - 'iotdb-client/client-py/**'
+#       - 'iotdb-client/client-cpp/**'
+#       - 'iotdb-protocol/thrift-datanode/src/main/thrift/client.thrift'
+#       - 'iotdb-protocol/thrift-commons/src/main/thrift/common.thrift'
+#       - '.github/workflows/multi-language-client.yml'
+#       - '.github/workflows/client-cpp-package.yml'
+#       - '.github/scripts/package-client-cpp-*.sh'
+#   # allow manually run the action:
+#   workflow_dispatch:
+# 
+# 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true

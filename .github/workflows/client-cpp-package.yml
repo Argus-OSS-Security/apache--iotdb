@@ -4,31 +4,32 @@
 # release events always use the workflow file from the default branch.
 name: C++ Client package
 
-on:
-  workflow_dispatch:
-    inputs:
-      variants:
-        description: "Which packages to build"
-        required: false
-        default: all
-        type: choice
-        options:
-          - all
-          - linux
-          - macos
-          - windows
-          - windows-vs2017
-          - windows-vs2019
-          - windows-vs2022
-          - windows-vs2026
-  release:
-    types: [published]
-  push:
-    branches:
-      - "rc/**"
-    tags:
-      - "v*"
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   workflow_dispatch:
+#     inputs:
+#       variants:
+#         description: "Which packages to build"
+#         required: false
+#         default: all
+#         type: choice
+#         options:
+#           - all
+#           - linux
+#           - macos
+#           - windows
+#           - windows-vs2017
+#           - windows-vs2019
+#           - windows-vs2022
+#           - windows-vs2026
+#   release:
+#     types: [published]
+#   push:
+#     branches:
+#       - "rc/**"
+#     tags:
+#       - "v*"
+# 
 concurrency:
   group: client-cpp-package-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
